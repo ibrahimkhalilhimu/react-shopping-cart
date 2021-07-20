@@ -3,7 +3,8 @@ import CartItem from './CartItem';
 import { CartContent } from './Context';
 
 const Cart = () => {
-    const item = useContext(CartContent)
+
+    const {item} = useContext(CartContent)
    
     return (
         <>
