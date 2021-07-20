@@ -4,8 +4,8 @@ import { CartContent } from './Context';
 
 const Cart = () => {
 
-    const {item} = useContext(CartContent)
-   
+    const {item,deleteAllData} = useContext(CartContent)
+
     return (
         <>
             <div className="shop-cart">
@@ -31,6 +31,9 @@ const Cart = () => {
                         {/* <h4>$<span>1278</span></h4>
                         <h4>$<span>0</span></h4> */}
                         <h4>$<span>1278</span></h4>
+                        <button 
+                        onClick={deleteAllData}
+                        className="btn btn-warning text-danger">Remove All</button>
                         </div>
                     </div>
                     </div>

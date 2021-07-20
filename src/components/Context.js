@@ -20,8 +20,13 @@ const Context = () => {
             payload: id
         })
     }
+    const deleteAllData =()=>{
+        return dispatch({
+            type: 'DeleteAllItem',
+        })
+    }
     return (
-           <CartContent.Provider value={{...state,handleDelete}}> 
+           <CartContent.Provider value={{...state,handleDelete,deleteAllData}}> 
                <Cart/>
             </CartContent.Provider> 
        
