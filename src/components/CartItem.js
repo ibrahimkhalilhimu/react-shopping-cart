@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { CartContent } from './Context';
 
 const CartItem = ({data}) => {
-    const {title,price,quantity,img} = data;
+    const {title,price,quantity,img,id} = data;
+    const {handleDelete} = useContext(CartContent)
     return (
         <>
              <div className="cart-item">
@@ -17,7 +19,10 @@ const CartItem = ({data}) => {
                                 <button className="btn">➕</button>
                             </div>
                             <h4>$<span>{price}</span></h4>
-                            <img style={{ width:"30px",cursor:"pointer",marginTop:"-10px",marginLeft:"10px"}} src="https://i.ibb.co/8xS1xvH/remove.png" alt="cross" />
+                            <img 
+                            onClick={() =>handleDelete(id)}
+                            style={{ width:"30px",cursor:"pointer",marginTop:"-10px",marginLeft:"10px"}} src="https://i.ibb.co/8xS1xvH/remove.png" 
+                            alt="cross" />
                         </div>
                     </div>
              </div>

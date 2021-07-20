@@ -13,8 +13,15 @@ const initialState = {
 
 const Context = () => {
     const [state, dispatch] = useReducer(reducer, initialState)
+
+    const handleDelete =(id)=>{
+       return dispatch({
+            type: 'DeleteItem',
+            payload: id
+        })
+    }
     return (
-           <CartContent.Provider value={{...state}}> 
+           <CartContent.Provider value={{...state,handleDelete}}> 
                <Cart/>
             </CartContent.Provider> 
        
