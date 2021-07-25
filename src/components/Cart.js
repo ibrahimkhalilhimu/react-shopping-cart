@@ -4,7 +4,7 @@ import { CartContent } from './Context';
 
 const Cart = () => {
 
-    const {item,deleteAllData} = useContext(CartContent)
+    const {item, deleteAllData} = useContext(CartContent)
 
     return (
         <>

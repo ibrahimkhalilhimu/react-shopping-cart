@@ -16,17 +16,31 @@ const Context = () => {
 
     const handleDelete =(id)=>{
        return dispatch({
-            type: 'DeleteItem',
+            type: 'DELETE_ITEM',
             payload: id
         })
     }
     const deleteAllData =()=>{
         return dispatch({
-            type: 'DeleteAllItem',
+            type: 'DELETE_ALL_ITEM',
         })
     }
+    const increment = (id)=> {  
+        return dispatch({
+            type: 'INCREASE',
+            payload: id
+        })
+    }
+    const decrement = (id)=> {  
+        return dispatch({
+            type: 'DECREASE',
+            payload: id
+        })
+   
+    }
+
     return (
-           <CartContent.Provider value={{...state,handleDelete,deleteAllData}}> 
+           <CartContent.Provider value={{...state,handleDelete,deleteAllData,increment,decrement}}> 
                <Cart/>
             </CartContent.Provider> 
        

@@ -3,7 +3,9 @@ import { CartContent } from './Context';
 
 const CartItem = ({data}) => {
     const {title,price,quantity,img,id} = data;
-    const {handleDelete} = useContext(CartContent)
+
+    const {handleDelete, increment,decrement} = useContext(CartContent)
+
     return (
         <>
              <div className="cart-item">
@@ -14,9 +16,16 @@ const CartItem = ({data}) => {
                         </div>
                         <div className="col-md-5 center-item">
                             <div className="input-group number-spinner">
-                                <button className="btn">➖</button>
-                                <input type="text" className="form-control text-center" disabled defaultValue={quantity}/>
-                                <button className="btn">➕</button>
+                                <button
+                                onClick={() =>decrement(id)}
+                                className="btn"
+                                
+                                >➖</button>
+                                <input type="text" className="form-control text-center" disabled placeholder={quantity}/>
+                                <button 
+                                onClick={() =>increment(id)}
+                                className="btn">➕
+                                </button>
                             </div>
                             <h4>$<span>{price}</span></h4>
                             <img 
